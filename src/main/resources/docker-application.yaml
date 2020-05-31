@@ -3,5 +3,14 @@ spring:
       active: "#{Octopus.Environment.Name}"
    application:
       name: PKSUpgradeTester
+management:
+  endpoints:
+    web:
+      exposure:
+        include: info, health, metrics
+  metrics:
+    export:
+      atlas:
+        enabled: false
 server:
   port: ${TOMCAT_PORT}
