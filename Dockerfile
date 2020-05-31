@@ -1,4 +1,5 @@
 FROM openjdk:8-jdk-alpine
+ARG BUILD_NUMBER
 ARG JAR_FILE=PKSUpgradeTester-1.0.${BUILD_NUMBER}.jar
 COPY target/${JAR_FILE} app.jar
 
