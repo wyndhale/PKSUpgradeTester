@@ -3,5 +3,10 @@ spring:
       active: development
    application:
       name: PKSUpgradeTester
+management:
+   endpoints:
+      web:
+         exposure:
+            include: "*"
 server:
   port: ${TOMCAT_PORT}
