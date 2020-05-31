@@ -1,6 +1,6 @@
 FROM openjdk:8-jdk-alpine
 ARG BUILD_NUMBER
-ARG JAR_FILE=PKSUpgradeTester-1.0.${BUILD_NUMBER}.jar
+ARG JAR_FILE=PKSUpgradeTester-latest.jar
 COPY target/${JAR_FILE} app.jar
 
 # Use an external config file
