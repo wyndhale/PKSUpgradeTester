@@ -1,5 +1,5 @@
 FROM openjdk:8-jdk-alpine
-ARG JAR_FILE=PKSUpgradeTester-${ARTEFACT_BUILD_NUMBER}-${ARTEFACT_BUILD_TYPE}.jar
+ARG JAR_FILE=PKSUpgradeTester-1.0.${BUILD_NUMBER}.jar
 COPY target/${JAR_FILE} app.jar
 
 # Use an external config file
