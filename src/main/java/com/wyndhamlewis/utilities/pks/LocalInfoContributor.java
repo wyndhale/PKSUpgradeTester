@@ -30,6 +30,25 @@ public class LocalInfoContributor implements InfoContributor {
 			builder.withDetail("hostname", "Failed to get from DatagramSocket.getLocalAddress().getHostAddress()");
 		}
 		
+		Map<String, String> javaDetails = new HashMap<String, String>();
+		javaDetails.put("alpine-version", getEnvItem("JAVA_ALPINE_VERSION"));
+		javaDetails.put("java-version", getEnvItem("JAVA_VERSION"));
+		javaDetails.put("java-home", getEnvItem("JAVA_HOME"));
+		builder.withDetail("java-info", javaDetails);
+		
+		builder.withDetail("tomcat-port", getEnvItem("TOMCAT_PORT"));
+		
+		Map<String, String> appDetails = new HashMap<String, String>();
+		appDetails.put("service-port-web", getEnvItem("PKSUPGRADETESTER_SERVICE_PORT_WEB"));
+		appDetails.put("service-port", getEnvItem("PKSUPGRADETESTER_SERVICE_PORT"));
+		appDetails.put("service-host", getEnvItem("PKSUPGRADETESTER_SERVICE_HOST"));
+		appDetails.put("k8s-port", getEnvItem("PKSUPGRADETESTER_PORT"));
+		appDetails.put("port-http-tcp", getEnvItem("PKSUPGRADETESTER_PORT_80_TCP"));
+		appDetails.put("port-http-proto", getEnvItem("PKSUPGRADETESTER_PORT_80_TCP_PROTO"));
+		appDetails.put("port-http-addr", getEnvItem("PKSUPGRADETESTER_PORT_80_TCP_ADDR"));
+		appDetails.put("port-http-addr", getEnvItem("PKSUPGRADETESTER_PORT_80_TCP_PORT"));
+        builder.withDetail("app-info", appDetails);
+
 		
 		Map<String, String> podDetails = new HashMap<String, String>();
 		podDetails.put("kube-version", getEnvItem("KUBE_VERSION"));
@@ -42,7 +61,7 @@ public class LocalInfoContributor implements InfoContributor {
 		podDetails.put("port-443-proto", getEnvItem("KUBERNETES_PORT_443_TCP_PROTO"));
 		podDetails.put("port-443-addr", getEnvItem("KUBERNETES_PORT_443_TCP_ADDR"));
 		podDetails.put("port-443-addr", getEnvItem("KUBERNETES_PORT_443_TCP_PORT"));
-        builder.withDetail("pod-info", podDetails);
+        builder.withDetail("kube-info", podDetails);
 	}
     
     private String getEnvItem(String propertyName) {
