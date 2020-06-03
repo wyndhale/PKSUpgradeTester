@@ -12,5 +12,17 @@ management:
     export:
       atlas:
         enabled: false
+        
+info:
+  app:
+    name: PKSUpgradeTester
+    description: Designed to be called multiple times during a PKS upgrade to show that the application is still reachable
+    version: 1.0.0
+  java-home: ${java.home}
+  java-vendor: ${java.specification.vendor}
+  java-version: ${java.vm.version}
+  os-arch: ${os.arch}
+  os-name: ${os.name}
+  os-version: ${os.version}
 server:
   port: 80
