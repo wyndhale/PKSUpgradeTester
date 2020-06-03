@@ -13,4 +13,4 @@ management:
       atlas:
         enabled: false
 server:
-  port: ${TOMCAT_PORT}
+  port: 80
