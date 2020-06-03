@@ -25,4 +25,4 @@ info:
   os-name: ${os.name}
   os-version: ${os.version}
 server:
-  port: ${TOMCAT_PORT}
+  port: 80
